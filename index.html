@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MAHI JII</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    /* Hide both sections until we know if the password is correct */
+    #main-content, #access-denied { display: none; }
+    #access-denied {
+      text-align: center;
+      padding: 100px 20px;
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== Access Denied Section ===== -->
+<div id="access-denied">
+  <h1>🚫 Access Denied</h1>
+  <p>Incorrect password. Please refresh the page to try again.</p>
+</div>
+
+<!-- ===== Protected Main Content ===== -->
+<div id="main-content">
+  <div class="card">
+      <div class="heart-container">
+          <svg viewBox="0 0 100 100" width="100" height="100">
+              <path class="heart" d="M50 88.9L16.7 55.6C7.2 46.1 7.2 30.9 16.7 21.4s24.7-9.5 34.2 0L50 20.5l-0.9 0.9c9.5-9.5 24.7-9.5 34.2 0s9.5 24.7 0 34.2L50 88.9z"/>
+              <path class="broken-heart" d="M50 88.9L16.7 55.6C7.2 46.1 7.2 30.9 16.7 21.4s24.7-9.5 34.2 0L50 20.5l-0.9 0.9c9.5-9.5 24.7-9.5 34.2 0s9.5 24.7 0 34.2L50 88.9z"/>
+              <circle class="sparkle" cx="25" cy="25" r="2"/>
+              <circle class="sparkle" cx="75" cy="25" r="2"/>
+              <circle class="sparkle" cx="50" cy="15" r="2"/>
+          </svg>
+      </div>
+
+      <div class="question active" id="q1">
+          <h1 class="message">APP HAMESHA DOST RHOGE NA MERE PLEASEEE.... 💝</h1>
+          <div class="btn-container">
+              <button class="btn" onclick="nextQuestion(true, 1)">Yes!</button>
+              <div class="no-btn-container">
+                  <button class="btn no" onclick="handleNo()" onmouseover="dodgeNo()">No</button>
+              </div>
+          </div>
+      </div>
+
+      <div class="question" id="q2">
+          <h1 class="message">PLEASE MAAN JAOO NA YRR.... MAHI 🌹</h1>
+          <div class="btn-container">
+              <button class="btn" onclick="nextQuestion(true, 2)">Of course!</button>
+              <div class="no-btn-container">
+                  <button class="btn no" onclick="handleNo()" onmouseover="dodgeNo()">No way</button>
+              </div>
+          </div>
+      </div>
+
+      <div class="question" id="q3">
+          <h1 class="message">PAKKA NAAA....🤗</h1>
+          <div class="btn-container">
+              <button class="btn" onclick="nextQuestion(true, 3)">Come here!</button>
+              <div class="no-btn-container">
+                  <button class="btn no" onclick="handleNo()" onmouseover="dodgeNo()">Nope</button>
+              </div>
+          </div>
+      </div>
+
+      <div class="question" id="final">
+   
+          <h2 class="message">PLEASE FORGIVE ME!!!!!!</br>
+            actually misunderstanding ho gai mujhe ki aap kya samajh rhe... mai to dosti rakhni h ya nhi.. iske liye ha ya na ki khe ra tha.. but mujhe baad me samajh aaya ki apko bf ke liye lag ra chahe to chat dekh lo aap...
+            pr yrr really sorry mujhe hyper hoke gali nhi dena tha... mai to apko 2 din se mana ra tha ki follow kr de ra.. maine to sarcasm me bol diya ghar wale dekh lenge pr aap samajh nhi rhe the... aur yahi last option bacha h apko manane ka... please maan jao ek baar.. 🥺🥺
+            bs aap mujhe kahi se bhi bol do ki maaf kr diya phir uske baad phir block kr dena koi dikkat nhi.. please mujhe regret se duur kr do bs..
+            You've made me the happiest person ever!!!!!!! ❤</h2>
+          <h1 class="message">MAHIIII!!!!!!! ❤</h1>
+          <h6 class="message">from KULDEEP</h6>
+          <h6 class="message">© made by cse engineer @kuldeepsingh_artgallery</h6>
+      
+          </div>
+
+      <div class="question" id="rejected">
+          <h1 class="message">😢 But... but... please?</h1>
+          <div class="btn-container">
+              <button class="btn" onclick="resetQuestions()">Ok, let me try again</button>
+          </div>
+      </div>
+
+      <div class="floating-hearts"></div>
+  </div>
+</div>
+
+<script src="./script.js"></script>
+
+<script>
+  
+  const correctPassword = "02/08/2005";
+
+  const entered = prompt("Enter password to view the page:");
+
+  if (entered === correctPassword) {
+    document.getElementById("main-content").style.display = "block";
+  } else {
+    document.getElementById("access-denied").style.display = "block";
+  }
+</script>
+
+</body>
+</html>

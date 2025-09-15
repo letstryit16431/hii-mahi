@@ -1,0 +1,160 @@
+/* ===== Global Styles ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: radial-gradient(circle at top, #ff9eb5 0%, #ff638a 100%);
+  font-family: "Segoe UI", Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* ===== Card Container ===== */
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 40px 30px;
+  text-align: center;
+  width: 90%;
+  
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* ===== Heart Animation ===== */
+.heart-container {
+  margin-bottom: 20px;
+}
+
+.heart {
+  fill: #ff2e63;
+  transform-origin: center;
+  animation: heartbeat 1.5s infinite;
+}
+
+.broken-heart {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.5;
+}
+
+.sparkle {
+  fill: #fff;
+  animation: twinkle 2s infinite alternate;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.2; }
+  100% { opacity: 1; }
+}
+
+/* ===== Questions & Messages ===== */
+.question {
+  display: none;
+  transition: opacity 0.5s ease;
+}
+
+.question.active {
+  display: block;
+}
+
+.message {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  color: #fff;
+}
+
+/* ===== Buttons ===== */
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn {
+  background: #fff;
+  color: #ff2e63;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #ff2e63;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.no-btn-container {
+  position: relative;
+}
+
+/* “No” button dodges cursor */
+.btn.no {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.3s ease;
+}
+
+/* ===== Floating Hearts ===== */
+.floating-hearts::before,
+.floating-hearts::after {
+  content: "❤";
+  position: absolute;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 24px;
+  animation: float 6s infinite linear;
+}
+
+.floating-hearts::after {
+  left: 80%;
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-600px) scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* ===== Fade In Animation ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 480px) {
+  .message {
+    font-size: 1.1rem;
+  }
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
